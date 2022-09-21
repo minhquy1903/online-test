@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      target: builder
+    command: air
+    volumes:
+      - ./:/go/src/app
+    ports:
+      - "5000:5000"
+    networks:
+      - online-test
+
+  postgres:
+    image: postgres:13.8
+    restart: always
+    env_file:
+      - ./app.env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DATABASE_NAME}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db-data/postgresql:/var/lib/postgresql/data
+      - ./db-data/docker-entrypoint:/docker-entrypoint-initdb.d
+    networks:
+      - online-test
+
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - online-test
+
+networks:
+  online-test:
