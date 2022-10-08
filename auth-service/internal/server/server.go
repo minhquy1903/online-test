@@ -8,10 +8,10 @@ import (
 	"syscall"
 	"time"
 
-	authHttp "github.com/minhquy1903/online-test/internal/auth/delivery/http"
+	authHttp "github.com/minhquy1903/online-test/auth-service/internal/auth/delivery/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/minhquy1903/online-test/config"
+	"github.com/minhquy1903/online-test/auth-service/config"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 )

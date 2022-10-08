@@ -3,9 +3,9 @@ package http
 import (
 	"net/http"
 
-	"github.com/minhquy1903/online-test/internal/auth"
-	"github.com/minhquy1903/online-test/internal/auth/presenter"
-	"github.com/minhquy1903/online-test/utils"
+	"github.com/minhquy1903/online-test/auth-service/internal/auth"
+	"github.com/minhquy1903/online-test/auth-service/internal/auth/presenter"
+	"github.com/minhquy1903/online-test/auth-service/utils"
 
 	"github.com/labstack/echo/v4"
 )

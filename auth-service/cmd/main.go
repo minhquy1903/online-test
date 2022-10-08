@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/minhquy1903/online-test/config"
-	"github.com/minhquy1903/online-test/internal/server"
+	"github.com/minhquy1903/online-test/auth-service/config"
+	"github.com/minhquy1903/online-test/auth-service/internal/server"
 	"github.com/sirupsen/logrus"
 )
 

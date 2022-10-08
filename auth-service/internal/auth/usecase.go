@@ -3,7 +3,7 @@ package auth
 import (
 	"context"
 
-	"github.com/minhquy1903/online-test/internal/auth/domain"
+	"github.com/minhquy1903/online-test/auth-service/internal/auth/domain"
 )
 
 type UseCase interface {

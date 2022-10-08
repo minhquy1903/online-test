@@ -3,7 +3,7 @@ package db
 import (
 	"fmt"
 
-	"github.com/minhquy1903/online-test/config"
+	"github.com/minhquy1903/online-test/auth-service/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
