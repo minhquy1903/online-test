@@ -5,7 +5,6 @@ go 1.18
 require (
 	github.com/go-playground/validator/v10 v10.11.1
 	github.com/labstack/echo/v4 v4.9.0
-	github.com/minhquy1903/online-test v0.0.0-20220921134109-c26cb8f2df27
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/viper v1.13.0
 	golang.org/x/crypto v0.0.0-20221005025214-4161e89ecf1b
