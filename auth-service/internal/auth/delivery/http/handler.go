@@ -20,14 +20,14 @@ func NewAuthHandler(useCase auth.UseCase) auth.Handler {
 	}
 }
 
-func (h *authHandler) SignUp() echo.HandlerFunc {
+func (h *authHandler) Register() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		input := &presenter.RegisterRequest{}
 		if err := utils.ReadRequest(c, input); err != nil {
 			return echo.NewHTTPError(http.StatusBadRequest)
 		}
 
-		user, err := h.useCase.SignUp(c.Request().Context(), input.Username, input.Password)
+		user, err := h.useCase.Register(c.Request().Context(), input.Username, input.Password)
 		if err != nil {
 			return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 		}

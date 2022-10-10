@@ -7,7 +7,7 @@ import (
 )
 
 type UseCase interface {
-	SignUp(ctx context.Context, username, password string) (*domain.User, error)
-	// SignIn(ctx context.Context, username, password string) (string, error)
+	Register(ctx context.Context, username, password string) (*domain.User, error)
+	// Login(ctx context.Context, username, password string) (string, error)
 	// ParseToken(ctx context.Context, accessToken string) (string, error)
 }

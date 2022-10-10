@@ -43,5 +43,4 @@ func (c *AuthMiddlewareConfig) AuthRequired(ctx echo.Context) {
 
     ctx.Set("userId", res.UserId)
 
-    ctx.Next()
 }
