@@ -106,12 +106,6 @@ type AWS struct {
 	MinioEndpoint  string
 }
 
-// // AWS S3
-// type Jaeger struct {
-// 	Host        string
-// 	ServiceName string
-// 	LogSpans    bool
-// }
 
 // Load config file from given path
 func LoadConfig(path string) (*Config, error) {
