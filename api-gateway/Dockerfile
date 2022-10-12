@@ -1,6 +1,6 @@
 FROM golang:alpine3.16 as builder
 
-WORKDIR /go/src/auth-service
+WORKDIR /go/src/api-gateway
 
 RUN go install github.com/cosmtrek/air@latest
 

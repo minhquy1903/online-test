@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/minhquy1903/online-test/auth-service/config"
-	"github.com/minhquy1903/online-test/auth-service/internal/server"
+	"github.com/minhquy1903/online-test/auth-service/server"
 
 	"github.com/sirupsen/logrus"
 )
@@ -21,9 +21,6 @@ func main() {
 	// db := db.GetPostgresInstance(cfg)
 
 	s := server.NewServer(cfg, nil, logrus.New(), nil)
-
-	if err := s.Run(); err != nil {
-		log.Fatal(err)
-	}
+ 	s.Run()
 }
 

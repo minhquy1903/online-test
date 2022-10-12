@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt"
-	"github.com/minhquy1903/online-test/auth-service/internal/auth/domain"
+	"github.com/minhquy1903/online-test/auth-service/model"
 )
 
 type JwtWrapper struct {
@@ -20,7 +20,7 @@ type jwtClaims struct {
     Email string
 }
 
-func (w *JwtWrapper) GenerateToken(user domain.User) (signedToken string, err error) {
+func (w *JwtWrapper) GenerateToken(user model.User) (signedToken string, err error) {
     claims := &jwtClaims{
         Id:    user.Id,
         Email: user.Email,

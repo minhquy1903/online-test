@@ -27,7 +27,7 @@ func Register(ctx echo.Context, c pb.AuthServiceClient) {
     })
 
     if err != nil {
-        ctx.String(http.StatusBadRequest, "Bad Request2")
+        ctx.String(http.StatusBadRequest, err.Error())
         return
     }
 

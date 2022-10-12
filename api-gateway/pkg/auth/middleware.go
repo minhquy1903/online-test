@@ -1,46 +1,37 @@
 package auth
 
-import (
-	"context"
-	"net/http"
-	"strings"
+// type AuthMiddlewareConfig struct {
+//     svc *ServiceClient
+// }
 
-	"github.com/labstack/echo/v4"
-	"github.com/minhquy1903/online-test/api-gateway/pkg/auth/pb"
-)
+// func InitAuthMiddleware(svc *ServiceClient) AuthMiddlewareConfig {
+//     return AuthMiddlewareConfig{svc}
+// }
 
-type AuthMiddlewareConfig struct {
-    svc *ServiceClient
-}
+// func (c *AuthMiddlewareConfig) AuthRequired(ctx echo.Context) {
+//     authorization := ctx.Request().Header.Get("authorization")
 
-func InitAuthMiddleware(svc *ServiceClient) AuthMiddlewareConfig {
-    return AuthMiddlewareConfig{svc}
-}
+//     if authorization == "" {
+//         ctx.String(http.StatusUnauthorized, "Unauthorized")
+//         return
+//     }
 
-func (c *AuthMiddlewareConfig) AuthRequired(ctx echo.Context) {
-    authorization := ctx.Request().Header.Get("authorization")
+//     token := strings.Split(authorization, "Bearer ")
 
-    if authorization == "" {
-        ctx.String(http.StatusUnauthorized, "Unauthorized")
-        return
-    }
+//     if len(token) < 2 {
+//         ctx.String(http.StatusUnauthorized, "Unauthorized")
+//         return
+//     }
 
-    token := strings.Split(authorization, "Bearer ")
+//     res, err := c.svc.Client.Validate(context.Background(), &pb.ValidateRequest{
+//         Token: token[1],
+//     })
 
-    if len(token) < 2 {
-        ctx.String(http.StatusUnauthorized, "Unauthorized")
-        return
-    }
+//     if err != nil || res.Status != http.StatusOK {
+//         ctx.String(http.StatusUnauthorized, "Unauthorized")
+//         return
+//     }
 
-    res, err := c.svc.Client.Validate(context.Background(), &pb.ValidateRequest{
-        Token: token[1],
-    })
+//     ctx.Set("userId", res.UserId)
 
-    if err != nil || res.Status != http.StatusOK {
-        ctx.String(http.StatusUnauthorized, "Unauthorized")
-        return
-    }
-
-    ctx.Set("userId", res.UserId)
-
-}
+// }

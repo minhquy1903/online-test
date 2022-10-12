@@ -1,13 +1,29 @@
 version: "3.8"
 
 services:
-  app:
+  api-gateway:
     build:
-      context: .
+      context: ./api-gateway
       target: builder
     command: air
+    env_file:
+      - ./api-gateway/dev.env
     volumes:
-      - ./:/go/src/app
+      - ./api-gateway:/go/src/api-gateway
+    ports:
+      - "5000:5000"
+    networks:
+      - online-test
+
+  auth-service:
+    build:
+      context: ./auth-service
+      target: builder
+    command: air
+    env_file:
+      - ./auth-service/dev.env
+    volumes:
+      - ./auth-service:/go/src/auth-service
     ports:
       - "5000:5000"
     networks:
@@ -17,7 +33,7 @@ services:
     image: postgres:13.8
     restart: always
     env_file:
-      - ./app.env
+      - .env
     environment:
       POSTGRES_DB: ${POSTGRES_DATABASE_NAME}
       POSTGRES_HOST: ${POSTGRES_HOST}

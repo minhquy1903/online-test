@@ -112,7 +112,7 @@ func LoadConfig(path string) (*Config, error) {
 	v := viper.New()
 
 	v.AddConfigPath(path)
-	v.SetConfigName("app")
+	v.SetConfigName("dev")
 	v.SetConfigType("env")
 	v.AutomaticEnv()
 
