@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/minhquy1903/online-test/api-gateway/pkg/auth"
 	"github.com/minhquy1903/online-test/api-gateway/pkg/config"
 	"github.com/sirupsen/logrus"
@@ -18,6 +19,7 @@ import (
 func main() {
 
     echo := echo.New()
+	echo.Use(middleware.CORS())
     cfg, err := config.LoadConfig()
     logger := logrus.Logger{}
     var ready chan bool

@@ -11,7 +11,7 @@ services:
     volumes:
       - ./api-gateway:/go/src/api-gateway
     ports:
-      - "5000:5000"
+      - "8000:8000"
     networks:
       - online-test
 
